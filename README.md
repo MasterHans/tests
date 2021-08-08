@@ -16,18 +16,26 @@
 
 ### разворачиваем тестовую локальную среду из docker-compose:
     
-    docker-compose build
+    docker-compose up
 
-    docker run --rm -d 5261816a3541
-    (--rm для того чтобы при выгрузке образа удалаялись котейнеры и не висели в системе)
-    (-d в фоне)
+В результате создаются контейнеры:
+![](img/containers.jpg)
+
+
+
+## Если мы хотим управлять, нужно выбрать контенер образа - tests_php-fpm 
+
+В этом образе можно установить системные утилиты ткие как пинг и Midnight Commander
+Заходим в консоль docker образа:
+    
+    docker ps (получить ID контейнера) 
+    winpty docker exec -it <id_container> bash
+    (winpty - это под Windows)
 
 **Примечание**: Образ docker на базе DEBIAN 10.10.
 Проверить версию
 
     cat /etc/debian_version
-
-
 
 Необходимо пдополнительно установить пакет Midnight Commander и iputils-ping (для пинга)
 
@@ -58,8 +66,11 @@
         ]
 
 
+## Настройка доступа к сайту через браузер
 
-
+В файле hosts локальной машины нужно настроить
+    
+    127.0.0.1 deltrans.local 
 
 ### Сделать миграцию в тестовоу базу
 Создайте yii2_basic_tests или другую тестовую базу данных и обновите ее, применив миграции:
@@ -88,18 +99,27 @@
   
     C:\project\study\tests\vendor\bin\codecept run
 
+### Adminer:
+    
+    Server: mysql
+    Password: 123456qwerty
+    dbname: project_db
 
+### config/db.php
+    
+    'dsn' => 'mysql:host=mysql;dbname=project_db',
+    
 ### run all available tests
 
-composer exec codecept run
+    composer exec codecept run
 
 ### run functional tests
 
-composer exec codecept run functional
+    composer exec codecept run functional
 
 ### run unit tests
 
-composer exec codecept run unit
+    composer exec codecept run unit
 
 
 ### Проверка покрытя тестами кода проекта:
