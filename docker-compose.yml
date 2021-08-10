@@ -20,10 +20,12 @@ services:
     networks:
       - default-network
     volumes:
-# раскомментировать нужное
-      - ./docker/nginx/application/conf.d:/etc/nginx/conf.d
       - ./docker/logs/nginx:/var/log/nginx
 # Подлючаем разные папки сайта (шаблоны Yii2 для тестирования)
+# раскомментировать нужное
+      - ./docker/nginx/application/conf.d:/etc/nginx/conf.d
+#      - ./docker/nginx/advanced/conf.d:/etc/nginx/conf.d
+#      - ./docker/nginx/basic/conf.d:/etc/nginx/conf.d
 # раскомментировать нужное
       - ./application:/var/www/html
 #      - ./basic:/var/www/html
