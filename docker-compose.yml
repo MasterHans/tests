@@ -20,9 +20,14 @@ services:
     networks:
       - default-network
     volumes:
-      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+# раскомментировать нужное
+      - ./docker/nginx/application/conf.d:/etc/nginx/conf.d
       - ./docker/logs/nginx:/var/log/nginx
+# Подлючаем разные папки сайта (шаблоны Yii2 для тестирования)
+# раскомментировать нужное
       - ./application:/var/www/html
+#      - ./basic:/var/www/html
+#      - ./advanced:/var/www/html
     # nginx должен общаться с php-fpm контейнером
     links:
       - php-fpm
@@ -32,7 +37,11 @@ services:
     # у нас свой образ для PHP, указываем путь к нему и говорим что его надо собрать
     build: ./docker/php-fpm/build-image
     volumes:
+# Подлючаем разные папки сайта (шаблоны Yii2 для тестирования)
+# раскомментировать нужное
       - ./application:/var/www/html
+#      - ./basic:/var/www/html
+#      - ./advanced:/var/www/html
     networks:
       - default-network
     links:

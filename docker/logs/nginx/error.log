@@ -976,3 +976,59 @@
 2021/08/08 12:24:50 [notice] 1#1: start worker process 28
 2021/08/08 12:24:50 [notice] 1#1: start worker process 29
 2021/08/08 12:24:50 [notice] 1#1: start worker process 30
+2021/08/10 07:13:43 [error] 23#23: *61 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: deltrans.local, request: "GET /index.php HTTP/1.1", upstream: "fastcgi://172.29.0.4:9000", host: "127.0.0.1", referrer: "http://127.0.0.1/index.php?r=post"
+2021/08/10 07:13:49 [error] 23#23: *64 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: deltrans.local, request: "GET / HTTP/1.1", upstream: "fastcgi://172.29.0.4:9000", host: "127.0.0.1"
+2021/08/10 09:35:30 [error] 23#23: *68 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.29.0.1, server: deltrans.local, request: "GET / HTTP/1.1", upstream: "fastcgi://172.29.0.4:9000", host: "127.0.0.1"
+2021/08/10 10:54:25 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2021/08/10 10:54:25 [notice] 24#24: gracefully shutting down
+2021/08/10 10:54:25 [notice] 23#23: gracefully shutting down
+2021/08/10 10:54:25 [notice] 25#25: gracefully shutting down
+2021/08/10 10:54:25 [notice] 26#26: gracefully shutting down
+2021/08/10 10:54:25 [notice] 28#28: gracefully shutting down
+2021/08/10 10:54:25 [notice] 29#29: gracefully shutting down
+2021/08/10 10:54:25 [notice] 30#30: gracefully shutting down
+2021/08/10 10:54:25 [notice] 30#30: exiting
+2021/08/10 10:54:25 [notice] 24#24: exiting
+2021/08/10 10:54:25 [notice] 27#27: gracefully shutting down
+2021/08/10 10:54:25 [notice] 23#23: exiting
+2021/08/10 10:54:25 [notice] 25#25: exiting
+2021/08/10 10:54:25 [notice] 26#26: exiting
+2021/08/10 10:54:25 [notice] 28#28: exiting
+2021/08/10 10:54:25 [notice] 29#29: exiting
+2021/08/10 10:54:25 [notice] 30#30: exit
+2021/08/10 10:54:25 [notice] 24#24: exit
+2021/08/10 10:54:25 [notice] 27#27: exiting
+2021/08/10 10:54:25 [notice] 23#23: exit
+2021/08/10 10:54:25 [notice] 25#25: exit
+2021/08/10 10:54:25 [notice] 26#26: exit
+2021/08/10 10:54:25 [notice] 28#28: exit
+2021/08/10 10:54:25 [notice] 29#29: exit
+2021/08/10 10:54:25 [notice] 27#27: exit
+2021/08/10 10:54:25 [notice] 1#1: signal 17 (SIGCHLD) received from 26
+2021/08/10 10:54:25 [notice] 1#1: worker process 25 exited with code 0
+2021/08/10 10:54:25 [notice] 1#1: worker process 26 exited with code 0
+2021/08/10 10:54:25 [notice] 1#1: worker process 27 exited with code 0
+2021/08/10 10:54:25 [notice] 1#1: signal 29 (SIGIO) received
+2021/08/10 10:54:25 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2021/08/10 10:54:25 [notice] 1#1: worker process 24 exited with code 0
+2021/08/10 10:54:25 [notice] 1#1: worker process 28 exited with code 0
+2021/08/10 10:54:25 [notice] 1#1: signal 29 (SIGIO) received
+2021/08/10 10:54:25 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2021/08/10 10:54:25 [notice] 1#1: worker process 23 exited with code 0
+2021/08/10 10:54:25 [notice] 1#1: worker process 29 exited with code 0
+2021/08/10 10:54:25 [notice] 1#1: worker process 30 exited with code 0
+2021/08/10 10:54:25 [notice] 1#1: exit
+2021/08/10 10:54:50 [notice] 1#1: using the "epoll" event method
+2021/08/10 10:54:50 [notice] 1#1: nginx/1.21.1
+2021/08/10 10:54:50 [notice] 1#1: built by gcc 8.3.0 (Debian 8.3.0-6) 
+2021/08/10 10:54:50 [notice] 1#1: OS: Linux 5.10.16.3-microsoft-standard-WSL2
+2021/08/10 10:54:50 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/08/10 10:54:50 [notice] 1#1: start worker processes
+2021/08/10 10:54:50 [notice] 1#1: start worker process 22
+2021/08/10 10:54:50 [notice] 1#1: start worker process 23
+2021/08/10 10:54:50 [notice] 1#1: start worker process 24
+2021/08/10 10:54:50 [notice] 1#1: start worker process 25
+2021/08/10 10:54:50 [notice] 1#1: start worker process 26
+2021/08/10 10:54:50 [notice] 1#1: start worker process 27
+2021/08/10 10:54:50 [notice] 1#1: start worker process 28
+2021/08/10 10:54:50 [notice] 1#1: start worker process 29

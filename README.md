@@ -89,10 +89,20 @@
 
     C:\project\study\yii2\tests\vendor\bin\codecept generate:test unit Example 
 
+
+
  Запустить тест:
+    ПРИМЕЧАНИЕ: Конфигурационный файл для тестов - codeception.yml
+                берётся из той папки из которой мы делаем запуск теста...
+                для advanced шаблона его надо настраивать...
+
+
 
     C:\project\study\yii2\tests\vendor\bin\codecept run unit ExampleTest
     C:\project\study\yii2\tests\application\vendor\bin\codecept run
+    
+    
+     /var/www/html/vendor/bin/codecept run unit --debug --steps
 
 Здесь не всегда срабатывает (запуск через composer) и не всегда результат отображается на экране. 
 поэтому лучше запускать через:
@@ -171,3 +181,27 @@
 
 
     composer require codeception/module-phpbrowser --dev
+    
+### Unit тесты синтаксис
+
+#### ASSERTIONS
+    
+    $this->assertEquals()
+    $this->assertContains()
+    $this->assertFalse()
+    $this->assertTrue()
+    $this->assertNull()
+    $this->assertEmpty()
+
+
+    public function testLoginWrongPassword()
+        {
+            $this->model = new LoginForm([
+                'username' => 'demo',
+                'password' => 'wrong_password',
+            ]);
+    
+            expect_not($this->model->login());
+            expect_that(\Yii::$app->user->isGuest);
+            expect($this->model->errors)->hasKey('password'); //в ошибках есть поле error
+        }
