@@ -7,6 +7,8 @@
 2) Функциональные (Functional)
 3) Приёмочные (Acceptance)
 
+
+
 Функуиональные отличаются от приёмочных тем что проверяют прилоджение не стартуя на сервере. 
 Без эмуляции работы браузера.
 
@@ -149,6 +151,20 @@
     zend_extension=C:/OSPanel/modules/php/PHP_7.3-x64/ext/php_xdebug.dll
     ;SAG__
 
+Под Debian:
+
+/usr/local/etc/php/conf.d
+
+pecl install xdebug
+
+[xdebug]
+xdebug.mode=coverage
+xdebug.coverage_enable=1
+zend_extension_ts=/usr/local/lib/php/extensions/no-debug-non-zts-20190902/xdebug.so
+zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20190902/xdebug.so
+
+
+
 Настройки конфигурации codeception.yml:
 
     coverage:
@@ -205,3 +221,45 @@
             expect_that(\Yii::$app->user->isGuest);
             expect($this->model->errors)->hasKey('password'); //в ошибках есть поле error
         }
+        
+        
+## Настройка среды на Debian для acceptance тестов
+
+    composer require codeception/module-webdriver --dev
+
+1) Установите браузер Mozilla Firefox 
+
+    
+    apt-get install firefox-esr
+    
+2) Установка среды выполнения Java
+
+
+    создать папку man
+    mkdir -p /usr/share/man/man1
+
+    sudo apt-get install default-jre
+
+ 
+3)   Скачать Selenium Standalone Server 
+
+    https://www.selenium.dev/downloads/
+    wget https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
+
+4)   Скачать Geckodriver             
+
+    wget https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux32.tar.gz
+    
+    
+    
+    java -jar -Dwebdriver.gecko.driver=~/geckodriver ~/selenium-server-standalone-x.xx.x.jar
+    
+    в текущей дериктории:
+    java -jar -Dwebdriver.gecko.driver=~/geckodriver selenium-server-standalone.jar
+    
+    
+    
+    
+    wget https://cgit.freedesktop.org/libreoffice/dictionaries/plain/lt_LT/lt.aff  -O lt_lt.affix_original \
+        && iconv -f ISO_8859-1 -t UTF-8 lt_lt.affix_original > /usr/share/postgresql/10/tsearch_data/lt_lt.affix \
+        && rm lt_lt.affix_original

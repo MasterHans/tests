@@ -9,6 +9,13 @@ use tests\unit\fixtures\PostFixture;
 
 class MarkdownBehaviorTest extends Unit
 {
+    public function testMy()
+    {
+        if (!file_put_contents('/var/www/html/tttt.txt', codecept_data_dir())) {
+            die;
+        };
+    }
+
     public function testNewModelSave()
     {
         $post = new Post();
@@ -28,18 +35,15 @@ class MarkdownBehaviorTest extends Unit
         $this->assertTrue($post->save());
         $this->assertEquals("<p>edited Other <em>markdown</em> text</p>\n", $post->content_html);
     }
-
-    public function _fixtures()
-    {
-        return [
-//        'profiles' => [
-//            'class' => UserProfileFixture::class,
-//            // fixture data located in tests/_data/user.php
-//            'dataFile' => codecept_data_dir() . 'user.php'
-//        ],
-            'posts' => [
-                'class' => PostFixture::class,
-            ]
-        ];
-    }
+//не работает
+//[Error] Class 'tests\unit\fixtures\PostFixture' not found
+//    public function _fixtures()
+//    {
+//        return [
+//            'posts' => [
+//                'class' => PostFixture::className(),
+//                'dataFile' => codecept_data_dir() . 'post.php'
+//            ]
+//        ];
+//    }
 }
